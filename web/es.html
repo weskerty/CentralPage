@@ -1,0 +1,343 @@
+<div style="text-align:center;">
+
+ <!-- <div class="vocaroo-container">
+        <iframe width="300" height="60" src="https://vocaroo.com/embed/1bfn2LKLm9JE?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+    </div> -->
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Sun%20with%20Face.png" alt="Man Technologist Medium-Dark Skin Tone" width="180px" />
+
+<h1>Por un Paraguay Mejor</h1>
+        <h3>No mas Politicos Corruptos</h3>
+<p>Hoy en día tenemos una supuesta "Democracia" llamada "Democracia Representativa" en donde se vota por alguien que represente tus ideales. Pero este sistema tiene muchas fallas, Ejemplo;</p>
+
+<p>Un político en su campaña política dice que eliminará la corrupción, es afín a tu ideal y lo votas. Pero <strong>¿qué sucede cuando esos representantes por los que votaste, ahora políticos en el poder ignoran lo que prometieron hacer?</strong></p>
+<p><em>Ejemplo:</em> <a href="https://www.ultimahora.com/donacion-de-taiwan-escandalo-sobre-supuestos-audios-salpica-a-senadores">Repartirse la Donacion de Taiwan que se SUPONIA debia ser para mejorar el Pais con mas Escuelas y Demas</a>
+
+<div class="section">
+    <h2>Más Ejemplos</h2>
+    <div class="gallery-container">
+        <div id="corrupcion-gallery" 
+             class="contenedor-imagenes-animado"
+             data-json-path="web/Dinamico/data.json">
+           
+        </div>
+        <a href="web/Dinamico/Corrupcion/es.html" class="view-all-button">Ver Lista Completa</a>
+    </div>
+</div>
+
+<p>Esto desconecta totalmente con la realidad de la población y muchos ya no se sienten representados con esas acciones, algunos hasta se arrepienten de votarlos. Pero lamentablemente ya no hay vuelta atras...</p>
+
+</br>
+<h1>✨ Propuestas</h1>
+<p>Es por eso que hoy proponemos un modelo de <a href="https://es.wikipedia.org/wiki/Democracia_directa"> Democracia Directa</a>, similar a paises como <a href="https://es.wikipedia.org/wiki/Suiza">Suiza</a> que combina la participación ciudadana.. En este sistema los políticos no son necesarios, la responsabilidad recae en cada ciudadano.</p>
+
+<p><em>Ejemplo:</em> Si se requiere un hospital o una reforma, entonces un ciudadano presenta en una reunión su idea ya planificada para que el resto de los ciudadanos la aprueben o no. De esta manera se elimina la corrupcion politica.</p>
+
+<div class="section">
+    <div class="gallery-container">
+        <div id="propuestas-gallery" 
+             class="contenedor-imagenes-animado"
+             data-json-path="web/Dinamico/data.json">
+        </div>
+        <a href="web/Dinamico/Propuestas/es.html" class="view-all-button">Ver Lista Completa</a>
+    </div>
+</div>
+
+<div id="compartir-bloque" class="pulsos-section">
+  <div class="glowing-bg"></div>
+  <a href="web/otros/Markdowns/DemocraciaDirecta.md">
+    <h3>👉Clic Aqui para Saber Mas👈</h3>
+  </a>
+</div>
+
+
+
+
+
+</br>
+<div class="brillo-giratorio"> 
+   <h1>Grupos de Debate y Organización</h1>
+<p>Elige la Plataforma con la que te sientas mas comodo.</p>
+
+	<a href="https://chat.whatsapp.com/HXdpk6CpmSRDqHUOTLXp20"><img src="https://way-mark.ru/wp-content/uploads/2018/11/600px-WhatsApp_logo-color-vertical.svg_-160x160.png" alt="WhatsApp" height="128" width="128" /></a>
+	<a href="https://t.me/+CJQH_tIxev0xNjRh"><img src="https://front.com/assets/integrations/telegram/telegram_logo.png" alt="Telegram"  height="128" width="128" /></a>
+	<a href="web/otros/discordbot.html"><img src="https://github.com/user-attachments/assets/ad78bfde-436e-49f5-86a6-873fbb2a28b3" height="128" width="128" alt="Discord"  /></a>
+	<a href="https://matrix.to/#/#Politica:matrix.org"><img src="https://github.com/user-attachments/assets/7a1d0dbb-1284-45ad-a434-3bc054effe9a" height="128" width="128" alt="Matrix"  /></a>
+	<p>Los mensajes se sincronizan entre si a traves de un <a href="https://github.com/42wim/matterbridge">Bot</a> </p>
+    <p>No se recomienda usar WhatsApp por Privacidad.</p>
+  </div>
+
+<br>
+
+
+</br>
+
+<blockquote id="compartir-bloque">
+  <h3>
+    <a href="https://wa.me/?text=Eliminemos%20la%20corrupcion%20en%20Paraguay%2C%20Adios%20Politicos.%20Ayudame%20a%20lograrlo%20xurl.es%2FParaguayLibre" 
+       id="compartir-enlace"
+       style="text-decoration: none; color: inherit;">
+      Comparte el Cambio 🇵🇾💪
+    </a>
+  </h3>
+</blockquote>
+
+<script>
+  if (navigator.share) {
+    const enlace = document.getElementById('compartir-enlace');
+
+    enlace.removeAttribute('href');
+    enlace.style.cursor = 'pointer';
+
+    enlace.addEventListener('click', (e) => {
+      e.preventDefault(); 
+      navigator.share({
+        title: '😻 Compartir',
+        text: 'Comparte el Cambio',
+        url: window.location.href,
+      })
+      .then(() => console.log('Compartido exitosamente'))
+      .catch((error) => console.log('No se pudo compartir:', error));
+    });
+  }
+</script>
+
+
+</br>
+
+<div class="rss-section">
+    <h2>📰 Novedades</h2>
+    <div id="rss-section"></div>
+</div>
+
+<script>
+async function loadRSS() {
+    try {
+        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://silpy.congreso.gov.py/web/FeedRss?opcionRSS=1');
+        const data = await response.json();
+        
+        const rssHTML = data.items.slice(0, 3).map(item => `
+            <div class="rss-item">
+                <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                <p>${item.description}</p>
+            </div>
+        `).join('');
+        
+        document.getElementById('rss-section').innerHTML = rssHTML;
+    } catch (error) {
+        document.getElementById('rss-section').innerHTML = '<p>Error Cargando Novedades</p>';
+    }
+}
+loadRSS();
+</script>
+
+
+
+<div class="mariposas-section">
+    <div class="butterfly"></div>
+    <div class="butterfly"></div>
+    <div class="butterfly"></div>
+    <div id="typed-strings" style="display: none;">
+        <p>Cuando los políticos se creen dueños del país, es porque el pueblo ha olvidado que son sus empleados, no sus amos</p>
+        <p>Los ciudadanos no deben temer a su gobierno; el gobierno debe temer no cumplir con su pueblo.</p>
+        <p>La democracia desaparece cuando los políticos dejan de rendir cuentas y el pueblo deja de exigirlas.</p>
+        <p>El futuro pertenece a aquellos que creen en la belleza de sus sueños.</p>
+        <p>En Nepal intentaron apagar el WiFi, pero encendieron una revolución. En Paraguay no hace falta cortar internet, acá se corta la esperanza. Lo que podríamos llamar un "apagón social" sufren los jóvenes todos los días, cuando un salario no alcanza, cuando estudiar es un lujo, y pensar en un seguro médico o una lejana jubilación parece un chiste cruel -José Peralta</p>
+        <p>no hay peligro mayor para el que esta en el poder que alguien los cuestione</p>
+    </div>
+    <span id="typed"></span>
+</div>
+
+
+<h1> Todo Cambio Empieza en uno Mismo </h1>
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mastering..mentality/video/7531101358573866253" data-video-id="7531101358573866253" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@mastering..mentality" href="https://www.tiktok.com/@mastering..mentality?refer=embed">@mastering..mentality</a> Hopecore&gt;🥹❤️❤️‍🩹<a title="wholesome" target="_blank" href="https://www.tiktok.com/tag/wholesome?refer=embed">#wholesome</a> <a title="hopecore" target="_blank" href="https://www.tiktok.com/tag/hopecore?refer=embed">#hopecore</a> <a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral?refer=embed">#viral</a> <a title="fypシ" target="_blank" href="https://www.tiktok.com/tag/fyp%E3%82%B7?refer=embed">#fypシ</a> <a title="kindness" target="_blank" href="https://www.tiktok.com/tag/kindness?refer=embed">#kindness</a> <a title="capcut" target="_blank" href="https://www.tiktok.com/tag/capcut?refer=embed">#CapCut</a> <a target="_blank" title="♬ original sound - ascenvos" href="https://www.tiktok.com/music/original-sound-7518451355346914079?refer=embed">♬ original sound - ascenvos</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <blockquote class="red">
+        La web funcionan como una plataforma de recopilación y colaboración abierta.
+Todos pueden publicar a traves de Issues, PullRequest, Bots de WhatsApp y demas metodos Anonimos y no necesariamente refleja mi opinión.
+Parte del contenido puede constituir opinión personal y no debe interpretarse como hecho comprobado ni como consejo profesional.
+No se garantiza exactitud ni veracidad del material que aportan, y cada contribuyente es responsable de lo que publica.
+        
+    </blockquote>
+
+<h2>Agradecimientos</h2>
+</br>
+<a href="https://codepen.io/sheikh_ishaan/pen/zYVgXvQ">Fondo</a> · <a href="https://github.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis">Emojis</a> · <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile/blob/master/README.md">Badges</a> · <a href="https://github.com/markdown-it/markdown-it">MarkdownIt</a> · <a href="https://swiperjs.com/swiper-api#navigation">Galerias</a> · <a href="https://rss2json.com/">RSS</a> · <a href="https://opendyslexic.org/about">Fuente</a> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Frases -->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+function initTypedQuotes() {
+    if (typeof Typed !== 'undefined') {
+        new Typed('#typed', {
+            stringsElement: '#typed-strings',
+            typeSpeed: 40,
+            backSpeed: 20,
+            backDelay: 5000,
+            startDelay: 300,
+            loop: true,
+            showCursor: true,
+            cursorChar: '❤'
+        });
+    } else {
+        setTimeout(initTypedQuotes, 100);
+    }
+}
+initTypedQuotes();
+</script>
+
+
+</script>
+
+<!-- galerías -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+<script>
+async function loadGalleryData(jsonPath) {
+    try {
+        console.log(`Intentando cargar: ${jsonPath}`);
+        const response = await fetch(jsonPath);
+        console.log(`Response status: ${response.status}`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log('Datos cargados:', data);
+        return data.galleries;
+    } catch (error) {
+        console.error(`Error loading gallery data from ${jsonPath}:`, error);
+        return null;
+    }
+}
+
+function createSwiper(container, images) {
+    container.innerHTML = `
+        <div class="swiper-wrapper">
+            ${images.map(item => `
+                <div class="swiper-slide">
+                    <a href="${item.link || '#'}">
+                        <img src="${item.image}" alt="${item.name || 'Imagen'}" loading="lazy" />
+                    </a>
+                </div>
+            `).join('')}
+        </div>
+    `;
+
+    return new Swiper(container, {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        }
+    });
+}
+
+function filterGalleryData(galleryData, container) {
+    const galleryKey = container.dataset.galleryKey;
+    const galleryFilter = container.dataset.galleryFilter;
+    const containerId = container.id.replace('-gallery', '');
+    
+    if (galleryKey && galleryData[galleryKey]) {
+        return galleryData[galleryKey].images || [];
+    }
+    
+    if (galleryFilter) {
+        const matchingEntries = Object.entries(galleryData).filter(([key, value]) => 
+            key.toLowerCase().includes(galleryFilter.toLowerCase())
+        );
+        
+        if (matchingEntries.length > 0) {
+            return matchingEntries.flatMap(([key, value]) => value.images || []);
+        }
+    }
+    
+    const matchingKey = Object.keys(galleryData).find(key => 
+        key.toLowerCase() === containerId.toLowerCase()
+    );
+    
+    if (matchingKey && galleryData[matchingKey]) {
+        return galleryData[matchingKey].images || [];
+    }
+    
+    return [];
+}
+
+async function initializeUniversalSwiper() {
+    if (typeof Swiper === 'undefined') {
+        console.log('Swiper no está cargado aún');
+        return;
+    }
+    
+    const galleryElements = document.querySelectorAll('.contenedor-imagenes-animado[data-json-path]');
+    
+    for (const container of galleryElements) {
+        const jsonPath = container.dataset.jsonPath;
+        
+        if (!jsonPath) {
+            container.innerHTML = '<p>No se especificó ruta JSON</p>';
+            continue;
+        }
+        
+        const galleryData = await loadGalleryData(jsonPath);
+        
+        if (!galleryData) {
+            container.innerHTML = '<p>Error al cargar datos</p>';
+            continue;
+        }
+        
+        const images = filterGalleryData(galleryData, container);
+        
+        if (images.length > 0) {
+            container.classList.add('swiper');
+            createSwiper(container, images);
+        } else {
+            container.innerHTML = '<p>Sin Elementos</p>';
+        }
+    }
+}
+
+function waitForSwiperAndInit() {
+    if (typeof Swiper !== 'undefined') {
+        initializeUniversalSwiper();
+    } else {
+        setTimeout(waitForSwiperAndInit, 100);
+    }
+}
+
+waitForSwiperAndInit();
+</script>

@@ -1,0 +1,146 @@
+name: BOT Reddireccionador a Wikipedia en Galeria Incompletas
+
+on:
+  push:
+    paths:
+      - 'web/otros/Archivos/Imagenes/Ambiente/Extintos/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install requests
+          
+      - name: BOT Reddireccionador a Wikipedia en Galeria Incompletas
+        run: |
+          python3 << 'EOF'
+          import os
+          import re
+          import json
+          import requests
+          from pathlib import Path
+          
+          def normalize_name(filename):
+              name = os.path.splitext(filename)[0]
+              name = re.sub(r'([a-z])([A-Z])', r'\1 \2', name)
+              name = name.replace('_', ' ').replace('-', ' ')
+              name = re.sub(r'\s+', ' ', name).strip()
+              return name
+          
+          def search_wikipedia(query, lang='es'):
+              try:
+                  url = f"https://{lang}.wikipedia.org/w/api.php"
+                  params = {
+                      'action': 'opensearch',
+                      'search': query,
+                      'limit': 1,
+                      'format': 'json'
+                  }
+                  headers = {
+                      'User-Agent': 'GitHub-Action-Bot/1.0 (https://github.com)'
+                  }
+                  response = requests.get(url, params=params, headers=headers, timeout=10)
+                  response.raise_for_status()
+                  data = response.json()
+                  
+                  if data[1] and data[3]:
+                      return data[3][0]
+                  return None
+              except Exception as e:
+                  print(f"Error searching Wikipedia ({lang}): {e}")
+                  return None
+          
+          def find_wikipedia_article(query):
+              url = search_wikipedia(query, 'es')
+              if url:
+                  return url
+              
+              url = search_wikipedia(query, 'en')
+              if url:
+                  return url
+              
+              return None
+          
+          def generate_html_file(image_path, article_url):
+              html_content = f'<meta http-equiv="refresh" content="0; {article_url}">\n'
+              html_path = image_path.with_suffix('.html')
+              
+              try:
+                  with open(html_path, 'w', encoding='utf-8') as f:
+                      f.write(html_content)
+                  print(f"Generated: {html_path.name} -> {article_url}")
+                  return True
+              except Exception as e:
+                  print(f"Error writing HTML file {html_path}: {e}")
+                  return False
+          
+          def process_extintos_folder():
+              base_path = Path("web", "otros", "Archivos", "Imagenes", "Ambiente", "Extintos")
+              
+              if not base_path.exists():
+                  print(f"Directory not found: {base_path}")
+                  return
+              
+              image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
+              doc_extensions = {'.html', '.md'}
+              
+              image_files = [f for f in base_path.iterdir() 
+                           if f.is_file() and f.suffix.lower() in image_extensions]
+              
+              doc_files = {f.stem for f in base_path.iterdir() 
+                          if f.is_file() and f.suffix.lower() in doc_extensions}
+              
+              processed = 0
+              skipped = 0
+              failed = 0
+              
+              for image_file in image_files:
+                  if image_file.stem in doc_files:
+                      continue
+                  
+                  print(f"\nProcessing: {image_file.name}")
+                  normalized_name = normalize_name(image_file.name)
+                  print(f"Normalized: {normalized_name}")
+                  
+                  article_url = find_wikipedia_article(normalized_name)
+                  
+                  if article_url:
+                      if generate_html_file(image_file, article_url):
+                          processed += 1
+                      else:
+                          failed += 1
+                  else:
+                      print(f"No Wikipedia article found for: {normalized_name}")
+                      skipped += 1
+              
+              print(f"\n=== Summary ===")
+              print(f"Processed: {processed}")
+              print(f"Skipped: {skipped}")
+              print(f"Failed: {failed}")
+          
+          if __name__ == "__main__":
+              process_extintos_folder()
+          EOF
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add web/otros/Archivos/Imagenes/Ambiente/Extintos/*.html
+          git diff --staged --quiet || git commit -m "Redireccion a Wikipedia por falta de .md/html"
+          git push

@@ -1,0 +1,153 @@
+name: BOT Actualizador de Galeria Dinamica
+
+on:
+  push:
+    paths:
+      - 'web/Dinamico/**'
+      - 'web/otros/Archivos/Imagenes/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          
+      - name: BOT Actualizador de Galeria Dinamica
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+          from pathlib import Path
+          
+          def get_files(directory, extensions):
+              try:
+                  return sorted([
+                      f for f in os.listdir(directory)
+                      if os.path.isfile(os.path.join(directory, f)) and os.path.splitext(f)[1].lower() in extensions
+                  ])
+              except Exception as e:
+                  print(f"Error reading directory {directory}: {e}")
+                  return []
+          
+          def process_dinamico_gallery(folder_path):
+              if not os.path.exists(folder_path):
+                  print(f"Directory not found: {folder_path}")
+                  return []
+              
+              image_files = get_files(folder_path, {'.jpg', '.jpeg', '.png', '.gif', '.webp'})
+              html_files = get_files(folder_path, {'.html', '.md'})
+              gallery_items = []
+              
+              html_file_map = {os.path.splitext(f)[0]: f for f in html_files}
+              
+              for image_file in image_files:
+                  name = os.path.splitext(image_file)[0]
+                  html_file = html_file_map.get(name)
+                  
+                  if html_file:
+                      gallery_items.append({
+                          "image": f"web/Dinamico/{os.path.basename(folder_path)}/{image_file}",
+                          "link": f"web/Dinamico/{os.path.basename(folder_path)}/{html_file}",
+                          "name": name
+                      })
+              
+              return gallery_items
+          
+          def process_recursive_gallery(base_path):
+              galleries = {}
+              
+              for root, dirs, files in os.walk(base_path):
+                  image_files = [f for f in files if os.path.splitext(f)[1].lower() in {'.jpg', '.jpeg', '.png', '.gif', '.webp'}]
+                  html_files = [f for f in files if os.path.splitext(f)[1].lower() in {'.html', '.md'}]
+                  
+                  if image_files:
+                      rel_path = os.path.relpath(root, base_path)
+                      gallery_key = rel_path.replace(os.sep, '_') if rel_path != '.' else 'root'
+                      
+                      html_file_map = {os.path.splitext(f)[0]: f for f in html_files}
+                      gallery_items = []
+                      
+                      for image_file in image_files:
+                          name = os.path.splitext(image_file)[0]
+                          html_file = html_file_map.get(name)
+                          
+                          item = {
+                              "image": os.path.join(root, image_file).replace(os.sep, '/'),
+                              "name": name,
+                              "path": rel_path
+                          }
+                          
+                          if html_file:
+                              item["link"] = os.path.join(root, html_file).replace(os.sep, '/')
+                          
+                          gallery_items.append(item)
+                      
+                      galleries[gallery_key] = {
+                          "path": rel_path,
+                          "images": gallery_items
+                      }
+              
+              return galleries
+          
+          def create_dinamico_json():
+              base_path = Path("web", "Dinamico")
+              galleries = {}
+              
+              if not base_path.exists():
+                  print(f"Base directory not found: {base_path}")
+                  return
+              
+              for folder in base_path.iterdir():
+                  if folder.is_dir():
+                      print(f"Processing Dinamico folder: {folder.name}")
+                      galleries[folder.name] = {
+                          "images": process_dinamico_gallery(folder)
+                      }
+              
+              try:
+                  with open(base_path / 'data.json', 'w', encoding='utf-8') as f:
+                      json.dump({"galleries": galleries}, f, indent=2, ensure_ascii=False)
+                  print("Dinamico JSON file created successfully")
+              except Exception as e:
+                  print(f"Error creating Dinamico JSON file: {e}")
+          
+          def create_recursive_json():
+              base_path = Path("web", "otros", "Archivos", "Imagenes")
+              
+              if not base_path.exists():
+                  print(f"Base directory not found: {base_path}")
+                  return
+              
+              print(f"Processing recursive folder: {base_path}")
+              galleries = process_recursive_gallery(base_path)
+              
+              try:
+                  with open(base_path / 'data.json', 'w', encoding='utf-8') as f:
+                      json.dump({"galleries": galleries}, f, indent=2, ensure_ascii=False)
+                  print("Recursive JSON file created successfully")
+              except Exception as e:
+                  print(f"Error creating recursive JSON file: {e}")
+          
+          if __name__ == "__main__":
+              create_dinamico_json()
+              create_recursive_json()
+          EOF
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add web/Dinamico/data.json web/otros/Archivos/Imagenes/data.json
+          git diff --staged --quiet || git commit -m "Actualizado Galeria Dinamica"
+          git push

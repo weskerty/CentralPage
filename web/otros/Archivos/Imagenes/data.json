@@ -1,0 +1,253 @@
+{
+  "galleries": {
+    "Ambiente_GaleriaVidrios": {
+      "path": "Ambiente/GaleriaVidrios",
+      "images": [
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/GaleriaVidrios/palmito-440gramos-1.jpg",
+          "name": "palmito-440gramos-1",
+          "path": "Ambiente/GaleriaVidrios"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/GaleriaVidrios/MayoHell.jpg",
+          "name": "MayoHell",
+          "path": "Ambiente/GaleriaVidrios"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/GaleriaVidrios/atun.jpg",
+          "name": "atun",
+          "path": "Ambiente/GaleriaVidrios"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/GaleriaVidrios/anxova-sal-pot.jpg",
+          "name": "anxova-sal-pot",
+          "path": "Ambiente/GaleriaVidrios"
+        }
+      ]
+    },
+    "Ambiente_PYContaminado": {
+      "path": "Ambiente/PYContaminado",
+      "images": [
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py10.jpg",
+          "name": "py10",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py10.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py6.jpg",
+          "name": "py6",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py6.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py7.jpg",
+          "name": "py7",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py7.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py9.jpg",
+          "name": "py9",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py9.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py11.jpg",
+          "name": "py11",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py11.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py4.jpg",
+          "name": "py4",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py4.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py1.jpg",
+          "name": "py1",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py1.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py3.jpg",
+          "name": "py3",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py3.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py8.jpg",
+          "name": "py8",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py8.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py5.jpg",
+          "name": "py5",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/py5.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/PY2.jpg",
+          "name": "PY2",
+          "path": "Ambiente/PYContaminado",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/PYContaminado/PY2.html"
+        }
+      ]
+    },
+    "Ambiente_Extintos": {
+      "path": "Ambiente/Extintos",
+      "images": [
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ApuleiaLeiocarpa.jpg",
+          "name": "ApuleiaLeiocarpa",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ApuleiaLeiocarpa.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/SteviaRebaudiana.jpg",
+          "name": "SteviaRebaudiana",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/SteviaRebaudiana.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ButiaCampicola.jpg",
+          "name": "ButiaCampicola",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ButiaCampicola.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/GasteranthusExtinctus.jpg",
+          "name": "GasteranthusExtinctus",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/GasteranthusExtinctus.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PsoraleaCataracta.jpg",
+          "name": "PsoraleaCataracta",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PsoraleaCataracta.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/FocaMonjeCaribe.jpg",
+          "name": "FocaMonjeCaribe",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/FocaMonjeCaribe.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/CyaneaEleeleensis.jpg",
+          "name": "CyaneaEleeleensis",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/CyaneaEleeleensis.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PiliocolobusKirkii.jpg",
+          "name": "PiliocolobusKirkii",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PiliocolobusKirkii.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/AbutilonPitcairnense.jpg",
+          "name": "AbutilonPitcairnense",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/AbutilonPitcairnense.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PhocoenaSinus.jpg",
+          "name": "PhocoenaSinus",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PhocoenaSinus.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/CedrelaFissilis.jpg",
+          "name": "CedrelaFissilis",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/CedrelaFissilis.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/dodo.jpg",
+          "name": "dodo",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/dodo.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ZygopetalumMaxillare.jpg",
+          "name": "ZygopetalumMaxillare",
+          "path": "Ambiente/Extintos"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/HandroanthusHeptaphyllus.jpg",
+          "name": "HandroanthusHeptaphyllus",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/HandroanthusHeptaphyllus.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/AnnonaCacans.jpg",
+          "name": "AnnonaCacans",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/AnnonaCacans.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/BradypusPygmaeus.jpg",
+          "name": "BradypusPygmaeus",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/BradypusPygmaeus.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/BelugaHusoHuso.jpg",
+          "name": "BelugaHusoHuso",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/BelugaHusoHuso.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ButiaMarmorii.jpg",
+          "name": "ButiaMarmorii",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ButiaMarmorii.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/EuterpeEdulis.jpg",
+          "name": "EuterpeEdulis",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/EuterpeEdulis.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/RinoceronteNegro.jpg",
+          "name": "RinoceronteNegro",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/RinoceronteNegro.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PolhilliaIgnota.jpg",
+          "name": "PolhilliaIgnota",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/PolhilliaIgnota.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/VoyriaAphylla.jpg",
+          "name": "VoyriaAphylla",
+          "path": "Ambiente/Extintos"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ApteriaAphylla.jpg",
+          "name": "ApteriaAphylla",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/ApteriaAphylla.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/mejillones.jpg",
+          "name": "mejillones",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/mejillones.html"
+        },
+        {
+          "image": "web/otros/Archivos/Imagenes/Ambiente/Extintos/DelfinBaji.jpg",
+          "name": "DelfinBaji",
+          "path": "Ambiente/Extintos",
+          "link": "web/otros/Archivos/Imagenes/Ambiente/Extintos/DelfinBaji.html"
+        }
+      ]
+    }
+  }
+}
