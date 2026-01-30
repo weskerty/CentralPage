@@ -1,1 +1,0 @@
-<meta http-equiv="refresh" content="0; https://www.lanacion.com.py/negocios/2022/08/16/kaa-hee-y-otras-plantas-medicinales-en-peligro-de-extincion-ante-falta-de-asistencia-a-pequenos-productores/">
