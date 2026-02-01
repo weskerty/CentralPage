@@ -12,14 +12,14 @@ body {
     font-family: 'OpenDyslexic', 'Fluent Emoji Color', sans-serif;
     color: white;
     overflow-x: hidden; 
-    /* background: url('https://i.ibb.co/TMjC4dH0/tekstury-razmytie-siniy.jpg') no-repeat center center fixed; */
+     background: url('https://i.ibb.co/TMjC4dH0/tekstury-razmytie-siniy.jpg') no-repeat center center fixed; 
     background-color: #040a22;
     background-size: cover;
     position: relative;
 }
 
 
-body::before {
+/* body::before {
     content: '';
     position: fixed;
     top: 50%;
@@ -45,13 +45,13 @@ body::before {
     }
 }
 
-/* limite pantalla peque */
 @media (max-width: 500px) {
     body::before {
         width: 300px;
         height: 300px;
     }
 }
+*/
 
 blockquote {
     margin: 20px 0;
