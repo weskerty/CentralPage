@@ -11,47 +11,14 @@ body {
     padding: 0;
     font-family: 'OpenDyslexic', 'Fluent Emoji Color', sans-serif;
     color: white;
-    overflow-x: hidden; 
-     background: url('https://i.ibb.co/TMjC4dH0/tekstury-razmytie-siniy.jpg') no-repeat center center fixed; 
-    background-color: #040a22;
-    background-size: cover;
-    position: relative;
+    overflow-x: hidden;
+    background-color: #000000;
+    background: url('https://i.ibb.co/TMjC4dH0/tekstury-razmytie-siniy.jpg') no-repeat center center fixed; 
+    background-size: cover; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
-
-
-/* body::before {
-    content: '';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 500px;
-    transform: translate(-50%, -50%);
-    filter: blur(50px);
-    background-image: linear-gradient(#4ddc9e, #5b37eb, #f1307e);
-    animation: rotate 10s cubic-bezier(0.8, 0.2, 0.2, 0.8) alternate infinite;
-    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-    z-index: -1;
-    pointer-events: none;
-}
-
-
-@keyframes rotate {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-@media (max-width: 500px) {
-    body::before {
-        width: 300px;
-        height: 300px;
-    }
-}
-*/
 
 blockquote {
     margin: 20px 0;
@@ -91,7 +58,6 @@ blockquote.gold {
     background-color: rgba(0, 0, 0, 0.336);
     animation: backgroundColorChangeGold 5s infinite;
 }
-
 
 @keyframes backgroundColorChangeGold {
     0% {
@@ -171,35 +137,104 @@ code {
     backdrop-filter: blur(7px);
 }
 
-
 .content div div {
     background: none !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
-} 
+}
 
-/* carrusel */
-.contenedor-imagenes-animado {
+.gallery-item {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0 0 10px 0;
+    min-height: 260px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
     overflow: hidden;
-    width: 100%;
     position: relative;
 }
 
-.contenedor-imagenes-animado a {
-    flex: 0 0 25%; 
-    position: relative;
-    transform: translateX(0);
-    animation: moveLeft 5s linear infinite;
-    animation-play-state: running;
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 50%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
 }
 
-.contenedor-imagenes-animado a img {
+.gallery-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 12px 40px rgba(31, 38, 135, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.gallery-item img {
     width: 100%;
-    height: 200px; 
+    height: 200px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 24px 24px 0 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 0;
     display: block;
-    border-radius: 8px; 
+}
+
+.gallery-item .menu-content {
+    flex: 1;
+    text-align: center;
+    padding: 10px 15px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.gallery-item .menu-content h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.3;
+}
+
+.contenedor-imagenes-animado {
+    width: 100%;
+    position: relative;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-gallery .gallery-item {
+    display: flex;
 }
 
 .swiper {
@@ -210,105 +245,72 @@ code {
 }
 
 .swiper-slide {
-    width: 250px !important; 
-    height: 300px !important; 
-    position: relative;
-    transition: all 0.3s ease; 
-    overflow: hidden; 
-    border-radius: 16px; 
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
+    width: 250px !important;
 }
 
-.swiper-slide a {
-    display: block;
-    width: 100%;
-    height: 100%; 
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-    border-radius: 16px;
-    transition: all 0.3s ease;
+.swiper-slide .gallery-item {
+    height: 100%;
 }
 
 .swiper-slide-active {
     z-index: 2; 
-    transform-origin: center center; 
 }
 
-
-
-.swiper-slide-active img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-}
-
-.swiper-slide:not(.swiper-slide-active) {
-    transform: scale(0.9); 
-    opacity: 0.7; 
-}
-
-.grid-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 30px;
-    padding: 20px;
-}
-
-.grid-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-    transition: all 0.3s ease;
+.swiper-slide:not(.swiper-slide-active) .gallery-item {
     transform: scale(0.9);
-    transform-origin: center center;
-    position: relative;
-    z-index: 1;
-}
-
-.grid-gallery img:hover {
-    transform: scale(1.1);
-    opacity: 1;
-    /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); */
-    z-index: 2;
+    opacity: 0.7;
 }
 
 .view-all-button {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #1a73e82c;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 115, 232, 0.3) 0%,
+        rgba(26, 115, 232, 0.15) 50%,
+        rgba(26, 115, 232, 0.25) 100%
+    );
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     border-radius: 20px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .view-all-button:hover {
-    background-color: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
 }
 
 .back-button {
     display: inline-block;
     margin: 20px;
     padding: 10px 20px;
-    background-color: #66666681;
+    background: linear-gradient(
+        135deg,
+        rgba(102, 102, 102, 0.3) 0%,
+        rgba(102, 102, 102, 0.15) 50%,
+        rgba(102, 102, 102, 0.25) 100%
+    );
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     border-radius: 20px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .back-button:hover {
-    background-color: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 102, 102, 0.4);
 }
+
 .rss-section {
     margin: 30px 0;
     padding: 20px;
@@ -364,7 +366,6 @@ code {
     line-height: 1.5;
 }
 
-
 .rss-item img {
     max-width: 100%; 
     height: auto; 
@@ -374,7 +375,6 @@ code {
     margin-top: 10px;
     display: block; 
 }
-
 
 #disqus-container {
     background-color: rgba(0, 0, 0, 0.6); 
@@ -391,7 +391,6 @@ code {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     backdrop-filter: blur(7px);
 }
 
@@ -438,7 +437,6 @@ code {
   animation: flyPath 6s infinite linear;
 }
 
-/* Ala izq */
 .butterfly::before {
   content: '';
   position: absolute;
@@ -453,7 +451,6 @@ code {
   box-shadow: 0 0 15px #ff0080;
 }
 
-/* derecha */
 .butterfly::after {
   content: '';
   position: absolute;
@@ -512,24 +509,19 @@ code {
   }
 }
 
-
 #compartir-bloque {
     margin: 30px 0;                
     padding: 20px 30px;
     width: auto;                   
     max-width: 100%;               
-
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(7px);
     border-radius: 10px;
-
     position: relative;
     overflow: hidden;
     display: block;
     animation: fastGlow 2s infinite ease-in-out;
 }
-
-
 
 #compartir-bloque a {
     position: relative;
@@ -537,7 +529,6 @@ code {
     color: white;
     text-decoration: none;
 }
-
 
 @keyframes fastGlow {
     0%, 100% {
@@ -554,7 +545,6 @@ h1 {
   border-bottom: 2px solid #1a73e8;
   padding-bottom: 0.5rem;
   font-family: 'Georgia', serif;
-
 }
 
 h2 {
@@ -569,10 +559,23 @@ a:hover {
   text-decoration: underline; 
 }
 
+a::after {
+  content: '';
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
+.gallery-item,
+.view-all-button,
+.back-button {
+  text-decoration: none;
+}
 
-
-
+.gallery-item:hover,
+.view-all-button:hover,
+.back-button:hover {
+  text-decoration: none;
+}
 
 h1 a,
 h2 a,
@@ -594,3 +597,55 @@ h6 a:hover {
   text-decoration: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .content,
+  .gallery-item,
+  .view-all-button,
+  .back-button,
+  #disqus-container,
+  #custom-gallery,
+  .mariposas-section,
+  #compartir-bloque {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  .gallery-item {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .view-all-button {
+    background: rgba(26, 115, 232, 0.4);
+  }
+  
+  .back-button {
+    background: rgba(102, 102, 102, 0.4);
+  }
+  
+  .gallery-item,
+  .view-all-button,
+  .back-button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .gallery-item:hover,
+  .view-all-button:hover,
+  .back-button:hover,
+  blockquote:hover,
+  .rss-item:hover {
+    transform: none !important;
+  }
+  
+  .swiper-slide:not(.swiper-slide-active) .gallery-item {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
