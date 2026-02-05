@@ -1,7 +1,6 @@
 (function(){
 const D='web/es.html';
 let c='';
-let bg={};
 
 const md=window.markdownit({
 html:!0,
@@ -13,62 +12,9 @@ permalink:window.markdownItAnchor.default.permalink.headerLink(),
 slugify:s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\w\s-]/g,'').replace(/\s+/g,'-')
 });
 
-function iM(){
-return window.matchMedia("(max-width: 768px)").matches
-}
-
 function hL(){
 const l=document.getElementById('loading-screen');
 if(l)l.classList.add('hide')
-}
-
-async function lBG(){
-try{
-const r=await fetch('web/fondo.json');
-if(!r.ok){
-bg={type:'fallback'};
-return
-}
-const d=await r.json();
-const m=new Date().getMonth();
-bg=d.backgrounds.find(b=>b.month===m)||d.backgrounds[0]||{type:'fallback'}
-}catch(e){
-bg={type:'fallback'}
-}
-}
-
-function aBG(){
-const rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const v=document.getElementById('bg-video');
-if(iM()||rm||!bg||bg.type!=='video'){
-if(v)v.remove();
-if(bg&&bg.type==='css'){
-document.body.style.background=bg.css
-}else if(bg&&bg.type==='image'){
-document.body.style.backgroundImage=`url(${bg.src})`;
-document.body.style.backgroundSize='cover';
-document.body.style.backgroundPosition='center';
-document.body.style.backgroundAttachment='fixed'
-}
-hL();
-return
-}
-if(!v||!bg.src){
-hL();
-return
-}
-v.querySelector('source').src=bg.src;
-v.load();
-const t=setTimeout(()=>{
-v.pause();
-v.src='';
-v.load();
-hL()
-},5000);
-v.addEventListener('loadeddata',()=>{
-clearTimeout(t);
-hL()
-})
 }
 
 function eS(e){
@@ -80,21 +26,6 @@ if(o.src)n.src=o.src;
 else n.textContent=o.textContent;
 o.parentNode.replaceChild(n,o)
 })
-}
-
-function lD(){
-if(document.getElementById('disqus_thread'))return;
-const d=document.createElement('div');
-d.id='disqus_thread';
-document.getElementById('disqus-container').appendChild(d);
-window.disqus_config=function(){
-this.page.url=window.location.href;
-this.page.identifier=document.title
-};
-const s=document.createElement('script');
-s.src='https://amigos-steam.disqus.com/embed.js';
-s.setAttribute('data-timestamp',+new Date());
-document.body.appendChild(s)
 }
 
 async function lX(p='web/scripts/'){
@@ -170,8 +101,7 @@ if(e)e.scrollIntoView({behavior:'smooth',block:'start'})
 }
 
 document.addEventListener("DOMContentLoaded",async()=>{
-await lBG();
-aBG();
+hL();
 const h=window.location.hash;
 const{p:s,a:t}=pH(h);
 const f=s||D;
@@ -187,7 +117,6 @@ window.history.pushState({p:f,a:t},'',`#${f}${t?'#'+t:''}`)
 }else{
 await lC(D,!1)
 }
-lD();
 lX();
 window.addEventListener('hashchange',()=>{hH()});
 window.addEventListener('popstate',(e)=>{
